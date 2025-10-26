@@ -1,0 +1,54 @@
+// ==============================
+// Tugas 1 - Pemograman Berbasis Perangkat Bergerak
+// Nama : Farah Fadilla
+// Prodi : Sistem Informasi
+// ==============================
+
+let nim = "051348541";
+
+// Soal 1 : Pola Segitiga dari NIM
+let tinggi = parseInt(nim[nim.length - 1])
+
+console.log("=== Soal 1: Pola Segitiga ===");
+for (let i = 1; i <= tinggi; i++) {
+    let baris = "";
+    for (let j = 1; j <= i; j++) {
+        baris += j + " ";
+    }
+    console.log(baris.trim());
+}
+
+// Soal 2 : Deret Aritmatika nim
+
+let duaDigitTerakhir = parseInt(nim.slice(-2));
+let digitKetigaDariBelakang = parseInt(nim[nim.length - 3]);
+let beda = digitKetigaDariBelakang + 1;
+let start = duaDigitTerakhir;
+
+console.log("\n=== Soal 2 : Deret Aritmatika (10 angka pertama) ===");
+let deret: number[] = [];
+for (let i = 0; i < 10; i++) {
+    deret.push(start + i * beda);
+}
+console.log(deret.join(", "));
+
+// Soal 3 : Bilangan Prima dari nim
+
+let duaDigit = parseInt(nim.slice(-2));
+let batas = duaDigit + 10;
+
+console.log("\n=== Soal 3 : Bilangan Prima dari 1 sampai " + batas + "===");
+
+function isPrimary(n: number): boolean {
+    if (n < 2) return false;
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) return false;
+    }
+    return true;
+}
+
+let primary : number[] =[];
+for (let i = 1; i <= batas; i++) {
+    if (isPrimary(i)) primary.push(i);
+}
+console.log(primary.join(", "));
